@@ -1,0 +1,35 @@
+{
+    "extends": "eslint:recommended",
+    "rules": {
+        "comma-dangle": ["error", "never"],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-case-declarations": "off",
+        "no-console": "off",
+        "no-extra-boolean-cast": "off",
+        "no-var": "error",
+        "object-shorthand": ["error", "always"],
+        "one-var": ["error", "never"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "space-infix-ops": ["error"],
+        "no-lonely-if": ["error"],
+        "curly": [2, "multi-line"],
+        "no-unused-vars": "error",
+        "no-trailing-spaces": "error",
+        "space-before-blocks": "error"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "globals": {
+        "WeakMap": true,
+        "describe": true,
+        "it": true,
+        "beforeEach": true
+    }
+}

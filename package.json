@@ -1,0 +1,33 @@
+{
+  "name": "chickengame",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".mocharc.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0"
+  },
+  "nyc": {
+    "extension": [
+      ".js"
+    ],
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true,
+    "exclude": [
+      "coverage",
+      ".mocharc.js",
+      "index.js"
+    ]
+  }
+}
