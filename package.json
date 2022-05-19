@@ -2,10 +2,10 @@
   "name": "chickengame",
   "version": "1.0.0",
   "description": "",
-  "main": ".mocharc.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "nyc mocha",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +29,9 @@
       ".mocharc.js",
       "index.js"
     ]
+  },
+  "dependencies": {
+    "formidable": "^2.0.1",
+    "node-telegram-bot-api": "^0.57.0"
   }
 }
