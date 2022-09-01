@@ -2,20 +2,25 @@
 
 const TelegramBot = require("node-telegram-bot-api");
 
-const token = process.env["telegram-token"];
-const chatId = process.env["telegram-chat-id"];
+// const token = process.env["telegram-token"];
+// const chatId = process.env["telegram-chat-id"];
 
 
 class TelegramDriver {
 
-    constructor() {
-        this.api = new TelegramBot(token, {polling: true});
+    constructor(token, chatId) {
+        this.token = token;
+        this.chatId = chatId;
+
+
+        this.api = new TelegramBot(token);
 
     }
 
-    send({text, mode}) {
-        this.api.sendMessage(chatId, text, {
-            parse_mode: mode
+    send(messageContent) {
+
+        this.api.sendMessage(this.chatId, messageContent.text, {
+            parse_mode: messageContent.mode
         });
     }
 
