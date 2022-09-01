@@ -1,0 +1,48 @@
+
+main()
+    точка входа - начало работы приложения
+    создает экземпляры драйверов (fs driver, telegram driver)
+    создает экземпляр контроллера(передает ему драйверы)
+    создает экземпляр http сервера
+    направляет http запросы на MainController.onAnyRequest 
+
+
+MainController
+    onAnyRequest(request, response)
+        выполняет маршрутизацию - все запросы проходят через него, 
+        выбирает, какой метод вызвать далее
+    onStaticRequest(request, response)
+        отдает файлы из папки static
+    onIndexRequest(request, response)
+        отдает файл index.html при запросе к корню сайта
+    onFeedbackRequest(request, response)
+        отправляет вопрос пользователя в Telegram
+        с помощью FormParser достает данные формы; создает FeedbackTelegramMessageView 
+        (в конструктор передает данные формы), вызывает .render и отправляет результат 
+        TelegramDriver.send()
+
+
+FormParser
+    parse(request)
+        async метод, парсит данные формы из запроса (multipart/FormData), 
+        возвращает объект с данными формы
+
+
+FsDriver
+    exists(filePath)
+        async метод, который возвращает true если файл существует
+    open(filePath)
+        async метод, который возвращает ReadableStream
+
+TelegramDriver
+    send(messageContent)
+        отправляет сообщение в телеграм-чат
+
+TelegramMessageContent
+    text - текст сообщения в Telegram
+    mode - "HTML" 
+
+FeedbackTelegramMessageView
+    render() 
+        возвращает объект TelegramMessageContent
+
