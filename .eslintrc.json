@@ -28,6 +28,7 @@
     },
     "globals": {
         "WeakMap": true,
+        "Promise": true,
         "describe": true,
         "it": true,
         "beforeEach": true
